@@ -5,12 +5,12 @@ import com.cafeteria.domain.items.IBebida;
 /**
  * PADRÃO DE PROJETO: Decorator (Abstrato)
  *
- * Esta é a classe base para todos os "adicionais".
+ * classe base para todos os "adicionais".
  * Ela "embrulha" (decora) uma IBebida existente.
  *
  * 1. Ela implementa IBebida, para que possa ser tratada
  * como a bebida original.
- * 2. Ela "tem" (armazena) uma referência à bebida que
+ * 2. Ela armazena uma referência à bebida que
  * está a ser embrulhada.
  */
 public abstract class BebidaDecorator implements IBebida {
@@ -24,7 +24,7 @@ public abstract class BebidaDecorator implements IBebida {
     }
 
     /**
-     * Por padrão, o decorator simplesmente "delega" a chamada
+     * Por padrão, o decorator "delega" a chamada
      * para o objeto embrulhado.
      * As classes filhas (AdicionalAcucar) irão sobrescrever
      * este comportamento.

@@ -7,7 +7,7 @@ import com.cafeteria.domain.pagamento.PagamentoPix;
 /**
  * PADRÃO DE PROJETO: Factory (Simple Factory)
  *
- * A fábrica de métodos de pagamento.
+ * A factory de métodos de pagamento.
  */
 public class PagamentoFactory {
 

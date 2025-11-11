@@ -1,6 +1,5 @@
 package com.cafeteria.domain.items;
 
-// Implementa IItemPedido diretamente
 public class Donuts implements IItemPedido {
 
     @Override

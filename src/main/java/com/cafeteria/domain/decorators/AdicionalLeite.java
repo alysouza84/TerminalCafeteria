@@ -5,7 +5,8 @@ import com.cafeteria.domain.items.IBebida;
 /**
  * PADRÃO DE PROJETO: Decorator (Concreto)
  *
- * Outro adicional que funciona exatamente como o de Açúcar.
+ * Esta é a implementação de um adicional.
+ * Ele estende o Decorator abstrato.
  */
 public class AdicionalLeite extends BebidaDecorator {
 

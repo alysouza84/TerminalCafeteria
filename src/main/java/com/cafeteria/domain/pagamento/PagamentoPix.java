@@ -1,5 +1,6 @@
 package com.cafeteria.domain.pagamento;
 
+//forma de pagamento PIX
 public class PagamentoPix implements IMetodoPagamento {
     @Override
     public void processar(double valor) {
