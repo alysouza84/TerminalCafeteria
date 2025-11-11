@@ -3,9 +3,7 @@ package com.cafeteria.util;
 import java.util.Scanner;
 
 /**
- * Classe utilitária para centralizar a gestão do Scanner.
- * Evita que o Scanner seja aberto e fechado várias vezes,
- * o que pode causar problemas.
+ * Classe utilitária para funções gerais
  */
 public class InputManager {
 
@@ -32,6 +30,7 @@ public class InputManager {
         }
     }
 
+    //Função para fechar o Scanner
     public void fechar() {
         scanner.close();
     }

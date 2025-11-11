@@ -10,27 +10,26 @@ import java.util.LinkedList;
  * Esta classe GARANTE que só existirá UMA ÚNICA instância
  * dela em toda a aplicação.
  *
- * Isso é CRUCIAL: Todos os terminais (TerminalKiosk)
+ * Todos os terminais (TerminalKiosk)
  * precisam adicionar pedidos na MESMA fila, e os Baristas
  * precisam ler dessa MESMA fila.
  */
 public class FilaDePedidos {
 
-    // 2. A Instância ÚNICA estática e privada
-    // (Começa como null)
+    // 2. A Instância começa como NULL
     private static FilaDePedidos instanciaUnica;
 
     // O recurso que o Singleton está a proteger: a fila
     private Queue<IItemPedido> pedidos;
 
-    // 1. O Construtor PRIVADO
-    // Isso impede que qualquer outra classe use 'new FilaDePedidos()'
+    // 1. contstrutor privado
+    // para impedir que qualquer outra classe use 'new FilaDePedidos()'
     private FilaDePedidos() {
         // Usamos LinkedList como uma implementação de Fila (Queue)
         pedidos = new LinkedList<>();
     }
 
-    // 3. O Método de Acesso Global (a "porta de entrada")
+    // 3. O Método de Acesso Global
     // É 'static' para que possamos chamar: FilaDePedidos.getInstancia()
     public static FilaDePedidos getInstancia() {
 
@@ -46,7 +45,6 @@ public class FilaDePedidos {
     }
 
     // --- Métodos de Negócio ---
-
     /**
      * Adiciona um item (ou lista de itens) à fila única
      */

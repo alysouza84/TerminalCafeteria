@@ -7,8 +7,7 @@ import com.cafeteria.domain.items.CafeFiltrado;
 /**
  * PADRÃO DE PROJETO: Factory (Simple Factory)
  *
- * Responsabilidade Única (SRP): Esta classe só sabe
- * CRIAR objetos do tipo IBebida.
+ * Esta classe só sabe cirar objetos IBebida.
  *
  * Ela esconde a lógica (o 'new') do Terminal.
  * O Terminal apenas pede: "Dê-me um 'ESPRESSO'".

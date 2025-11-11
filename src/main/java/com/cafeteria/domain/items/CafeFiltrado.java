@@ -1,6 +1,5 @@
 package com.cafeteria.domain.items;
 
-// Implementa a interface IBebida (que é um IItemPedido)
 public class CafeFiltrado implements IBebida {
 
     @Override

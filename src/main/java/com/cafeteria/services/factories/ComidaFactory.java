@@ -9,7 +9,7 @@ import com.cafeteria.domain.items.Donuts;
  * PADRÃO DE PROJETO: Factory (Simple Factory)
  *
  * A mesma lógica da BebidaFactory, mas para Comidas.
- * Separamos em duas fábricas para manter o SRP.
+ * Separamos em duas factorys para manter o Single Responsability.
  */
 public class ComidaFactory {
 

@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Esta é a classe "orquestradora".
- * A sua responsabilidade (SRP) é gerir o fluxo de interação
+ * A responsabilidade dessa classe(SRP) é gerir o fluxo de interação
  * com o cliente (o menu) e DELEGAR o trabalho para
  * as outras classes (Fábricas, Processadores, Fila).
  */
@@ -35,14 +34,12 @@ public class TerminalKiosk {
     private List<IItemPedido> pedidoAtual;
 
     /**
-     * PADRÃO DE PROJETO: Injeção de Dependência (DI) por Construtor
+     * Injeção de Dependência (DI) por Construtor
      *
-     * O Terminal NÃO dá 'new' nas suas dependências essenciais.
-     * Ele as RECEBE "de fora" (do CafeteriaApp) quando é construído.
+     * O Terminal RECEBE as dependencias (do CafeteriaApp) quando é construído.
      *
      * Isso o torna DESACOPLADO. O Terminal não sabe como
-     * a FilaDePedidos é feita (Singleton? Normal?), ele apenas
-     * a usa. Ele não conhece as classes concretas das fábricas.
+     * a FilaDePedidos é feita, ele apenas a usa.
      */
     public TerminalKiosk(BebidaFactory bFactory,
                          ComidaFactory cFactory,
@@ -119,10 +116,10 @@ public class TerminalKiosk {
         IBebida bebida;
         try {
             if (escolha == 1) {
-                // USA A FÁBRICA: Pede a criação da bebida
+                // Pede a criação da bebida
                 bebida = bebidaFactory.criarBebida("ESPRESSO");
             } else if (escolha == 2) {
-                // USA A FÁBRICA: Pede a criação da bebida
+                // Pede a criação da bebida
                 bebida = bebidaFactory.criarBebida("FILTRADO");
             } else {
                 return; // Volta ao menu anterior
@@ -131,7 +128,7 @@ public class TerminalKiosk {
             // Pergunta pelos adicionais (Decorator)
             bebida = handleMenuAdicionais(bebida);
 
-            // Adiciona a bebida (original ou decorada) ao carrinho
+            // Adiciona a bebida (original ou com adicional) ao carrinho
             pedidoAtual.add(bebida);
             System.out.println("Item adicionado: " + bebida.getDescricao());
 
@@ -155,12 +152,12 @@ public class TerminalKiosk {
             int escolha = input.lerInt();
 
             if (escolha == 1) {
-                // PADRÃO DECORATOR: "Embrulha" a bebida atual
+                // PADRÃO DECORATOR: pega a bebida atual e adiciona
                 // com o decorador de Açúcar.
                 bebidaDecorada = new AdicionalAcucar(bebidaDecorada);
                 System.out.println("Açúcar adicionado.");
             } else if (escolha == 2) {
-                // PADRÃO DECORATOR: "Embrulha" a bebida atual
+                // PADRÃO DECORATOR: pega a bebida atual e adiciona
                 // com o decorador de Leite.
                 bebidaDecorada = new AdicionalLeite(bebidaDecorada);
                 System.out.println("Leite adicionado.");
@@ -170,7 +167,7 @@ public class TerminalKiosk {
                 System.out.println("Opção inválida.");
             }
         }
-        return bebidaDecorada; // Retorna a bebida (original ou embrulhada)
+        return bebidaDecorada; // Retorna a bebida (original ou com adicional)
     }
 
     // --- 2. Lógica das Comidas ---
@@ -226,7 +223,7 @@ public class TerminalKiosk {
         }
 
         // 3. Processar Pagamento (DI por Método)
-        // O Terminal DELEGA o processamento para o PaymentProcessor,
+        // O Terminal DELEGA a atividade ao PaymentProcessor,
         // INJETANDO o método de pagamento escolhido.
         paymentProcessor.processar(total, metodoPag);
 
@@ -268,6 +265,7 @@ public class TerminalKiosk {
         }
     }
 
+    // Exibe o estado do carrinho
     private void exibirCarrinho() {
         if (pedidoAtual.isEmpty()) {
             System.out.println("(Carrinho vazio)");

@@ -1,6 +1,5 @@
 package com.cafeteria.domain.items;
 
-// Implementa IItemPedido diretamente (NÃO é uma IBebida)
 public class Coxinha implements IItemPedido {
 
     @Override
